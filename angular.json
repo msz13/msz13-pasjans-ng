@@ -1,0 +1,127 @@
+{
+  "version": 1,
+  "projects": {
+    "msz-pasjans": {
+      "projectType": "application",
+      "root": "apps/msz-pasjans",
+      "sourceRoot": "apps/msz-pasjans/src",
+      "prefix": "msz-pasjans",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/msz-pasjans",
+            "index": "apps/msz-pasjans/src/index.html",
+            "main": "apps/msz-pasjans/src/main.ts",
+            "polyfills": "apps/msz-pasjans/src/polyfills.ts",
+            "tsConfig": "apps/msz-pasjans/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/msz-pasjans/src/favicon.ico",
+              "apps/msz-pasjans/src/assets"
+            ],
+            "styles": ["apps/msz-pasjans/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/msz-pasjans/src/environments/environment.ts",
+                  "with": "apps/msz-pasjans/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "msz-pasjans:build:production"
+            },
+            "development": {
+              "browserTarget": "msz-pasjans:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "msz-pasjans:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/msz-pasjans/src/**/*.ts",
+              "apps/msz-pasjans/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/msz-pasjans"],
+          "options": {
+            "jestConfig": "apps/msz-pasjans/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
+    "msz-pasjans-e2e": {
+      "root": "apps/msz-pasjans-e2e",
+      "sourceRoot": "apps/msz-pasjans-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/msz-pasjans-e2e/cypress.json",
+            "devServerTarget": "msz-pasjans:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "msz-pasjans:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/msz-pasjans-e2e/**/*.{js,ts}"]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": ["msz-pasjans"]
+    }
+  }
+}
