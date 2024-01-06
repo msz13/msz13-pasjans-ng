@@ -1,0 +1,13 @@
+<div class="board">
+    
+    <div class="upper-piles">
+        <app-not-dealed-pile class="not-dealed-pile"></app-not-dealed-pile>  
+        <app-suit-pile class="pile"></app-suit-pile>
+        <app-suit-pile class="pile"></app-suit-pile>
+        <app-suit-pile class="pile"></app-suit-pile>
+        <app-suit-pile class="pile"></app-suit-pile>
+    </div>
+    <div class="bottom-piles">
+       <app-card-pile *ngFor="let pile of basePiles | keyvalue" [cards]="pile.value" class="pile"></app-card-pile> 
+    </div>
+</div>

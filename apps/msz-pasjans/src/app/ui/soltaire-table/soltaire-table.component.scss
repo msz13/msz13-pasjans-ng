@@ -1,0 +1,32 @@
+ 
+.upper-piles {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.pile {
+    flex: 0 0 auto;
+    width: 14.2%;
+}
+
+
+.not-dealed-pile {
+    width: 42.6%;
+}
+
+.bottom-piles {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;    
+}
+
+
+
+.column {
+    width: 14,3%;
+} 
+
+
+

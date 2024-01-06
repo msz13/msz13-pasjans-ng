@@ -1,6 +1,32 @@
 {
   "version": 1,
   "projects": {
+    "msz-dnd": {
+      "projectType": "library",
+      "root": "libs/msz-dnd",
+      "sourceRoot": "libs/msz-dnd/src",
+      "prefix": "msz-pasjans",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/msz-dnd"],
+          "options": {
+            "jestConfig": "libs/msz-dnd/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/msz-dnd/src/**/*.ts",
+              "libs/msz-dnd/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
+    },
     "msz-pasjans": {
       "projectType": "application",
       "root": "apps/msz-pasjans",
@@ -90,6 +116,37 @@
           "options": {
             "jestConfig": "apps/msz-pasjans/jest.config.js",
             "passWithNoTests": true
+          }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "port": 4400,
+            "config": {
+              "configFolder": "apps/msz-pasjans/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "outputPath": "dist/storybook/msz-pasjans",
+            "config": {
+              "configFolder": "apps/msz-pasjans/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
           }
         }
       },

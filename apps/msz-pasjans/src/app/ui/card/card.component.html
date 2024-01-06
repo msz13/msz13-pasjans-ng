@@ -1,0 +1,8 @@
+<div class="card host" >
+    <div class="face back" *ngIf="!uncovered">
+        <img draggable="false" [src]="cardCover">
+    </div>
+    <div class="face front" *ngIf="uncovered">
+       <img draggable="false" [src]="imgSrc"> 
+    </div>
+</div>

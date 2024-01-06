@@ -1,0 +1,22 @@
+.pile {
+    height: 100%;   
+    position: relative; 
+           
+}
+
+.card {
+    position: absolute;
+    left: 0;
+}
+
+
+
+
+
+
+
+
+.moved {
+    transform: translate(50px,50px);
+}
+

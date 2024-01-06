@@ -1,0 +1,19 @@
+<div class="pile"     
+    >
+     <div *ngFor="let card of cards; let i=index" >
+        <app-card 
+            [name]="card.ID" 
+            [uncovered]="card.uncovered" 
+            class="card"
+            [style.top]="cardPosition(i)"           
+           >
+        </app-card>
+               
+    </div>  
+
+</div>
+
+
+
+
+

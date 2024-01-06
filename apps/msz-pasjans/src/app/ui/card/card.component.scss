@@ -1,0 +1,22 @@
+:host {
+    position: relative;
+}
+
+.card {  
+
+    box-sizing: border-box;
+    border-radius: 5px;
+    width: 120px;
+                  
+    img {
+       
+        width: 100%;
+        height: auto;
+        user-select: none;
+        pointer-events: none;
+    }
+}
+
+/* 
+
+ */
